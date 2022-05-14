@@ -47,6 +47,7 @@ export default {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
+    defaultAssets: { icons: 'fa' },
     customVariables: ['~/assets/variables.scss'],
     theme: {
       dark: false,
