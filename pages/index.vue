@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center" align="center" class="pa-0">
-    <v-col cols="12" sm="12" md="10" lg="8" xl="6">
+    <v-col cols="12" lg="8" md="10" sm="12" xl="8">
       <v-card>
         <v-card-title class="ma-2">
           <span class="resume-title">{{ capitalize(getName()) }}</span>
@@ -18,7 +18,7 @@
               xl="4"
               class="pa-3"
             >
-              <div class="pa-0 mt-1 mb-5">
+              <div class="pa-0 mt-1 mb-2">
                 <span class="section-title">{{ capitalize("Contacts") }}</span>
               </div>
               <v-row align="center" class="pa-1 ma-0">
@@ -54,7 +54,7 @@
               xl="8"
               class="pa-3"
             >
-              <div class="pa-0 mt-1 mb-5">
+              <div class="pa-0 mt-1 mb-2">
                 <span class="section-title">{{ capitalize("Profile") }}</span>
               </div>
             </v-col>
@@ -69,9 +69,19 @@
               xl="4"
               class="pa-3"
             >
-              <div class="pa-0 mt-1 mb-5">
-                <span class="section-title">{{ capitalize("Education") }}</span>
+              <div class="pa-0 mt-1 mb-2">
+                <span class="section-title">{{ capitalize("Educations") }}</span>
               </div>
+              <v-row v-for="education in educations" :key="education.title" class="pa-1 ma-0">
+                <periodic-action :action="education" />
+              </v-row>
+              <v-divider class="mb-5" />
+              <div class="pa-0 mt-1 mb-2">
+                <span class="section-title">{{ capitalize("Experiences") }}</span>
+              </div>
+              <v-row v-for="experience in experiences" :key="experience.title" class="pa-1 ma-0">
+                <periodic-action :action="experience" />
+              </v-row>
             </v-col>
             <v-col
               cols="12"
@@ -81,7 +91,7 @@
               xl="8"
               class="pa-3"
             >
-              <div class="pa-0 mt-1 mb-5">
+              <div class="pa-0 mt-1 mb-2">
                 <span class="section-title">{{ capitalize("Skills") }}</span>
               </div>
             </v-col>
@@ -93,7 +103,8 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
+
 export default {
   name: 'IndexPage',
   data: () => {
@@ -111,7 +122,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('resume', ['position', 'contacts']),
+    ...mapState('resume', ['position', 'contacts', 'educations', 'experiences']),
     ...mapGetters('resume', ['getName', 'capitalize'])
   }
 }
