@@ -93,6 +93,7 @@
             >
               <div class="pa-0 mt-1 mb-2">
                 <span class="section-title">{{ capitalize("Skills") }}</span>
+                <category-component />
               </div>
             </v-col>
           </v-row>
