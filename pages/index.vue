@@ -1,28 +1,39 @@
 <template>
-  <v-row justify="center" align="center">
+  <v-row justify="center" align="center" class="pa-0">
     <v-col cols="12" sm="12" md="10" lg="8" xl="6">
       <v-card>
-        <v-card-title class="">
+        <v-card-title class="ma-2">
           <span class="resume-title">{{ capitalize(getName()) }}</span>
         </v-card-title>
-        <v-card-subtitle>{{ capitalize(position) }}</v-card-subtitle>
-        <v-card-text>
-          <v-row>
-            <v-col cols="4">
-              <span class="section-title">{{ capitalize("Contacts") }}</span>
-              <v-row align="center">
+        <v-card-subtitle class="ma-2">
+          {{ capitalize(position) }}
+        </v-card-subtitle>
+        <v-card-text class="ma-2">
+          <v-row class="pa-2" justify="center">
+            <v-col
+              cols="12"
+              sm="12"
+              md="4"
+              lg="4"
+              xl="4"
+              class="pa-3"
+            >
+              <div class="pa-0 mt-1 mb-5">
+                <span class="section-title">{{ capitalize("Contacts") }}</span>
+              </div>
+              <v-row align="center" class="pa-1 ma-0">
                 <v-btn icon :href="`tel:${contacts.email}`">
                   <v-icon>{{ icons.phone }}</v-icon>
                 </v-btn>
-                <span>{{ contacts.phone }}</span>
+                <span class="ml-2">{{ contacts.phone }}</span>
               </v-row>
-              <v-row align="center">
+              <v-row align="center" class="pa-1 ma-0">
                 <v-btn icon :href="`mailto:${contacts.email}`">
                   <v-icon>{{ icons.email }}</v-icon>
                 </v-btn>
-                <span>{{ contacts.email }}</span>
+                <span class="ml-2">{{ contacts.email }}</span>
               </v-row>
-              <v-row>
+              <v-row class="pa-1 ma-0">
                 <v-btn
                   v-for="(value, key) in contacts.links"
                   :key="key"
@@ -35,8 +46,44 @@
                 </v-btn>
               </v-row>
             </v-col>
-            <v-col cols="8">
-              hello
+            <v-col
+              cols="12"
+              sm="12"
+              md="8"
+              lg="8"
+              xl="8"
+              class="pa-3"
+            >
+              <div class="pa-0 mt-1 mb-5">
+                <span class="section-title">{{ capitalize("Profile") }}</span>
+              </div>
+            </v-col>
+          </v-row>
+          <v-divider class="my-2" />
+          <v-row class="pa-2">
+            <v-col
+              cols="12"
+              sm="12"
+              md="4"
+              lg="4"
+              xl="4"
+              class="pa-3"
+            >
+              <div class="pa-0 mt-1 mb-5">
+                <span class="section-title">{{ capitalize("Education") }}</span>
+              </div>
+            </v-col>
+            <v-col
+              cols="12"
+              sm="12"
+              md="8"
+              lg="8"
+              xl="8"
+              class="pa-3"
+            >
+              <div class="pa-0 mt-1 mb-5">
+                <span class="section-title">{{ capitalize("Skills") }}</span>
+              </div>
             </v-col>
           </v-row>
         </v-card-text>
