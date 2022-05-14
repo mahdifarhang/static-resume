@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar fixed>
+    <v-app-bar fixed app>
       <v-btn text rounded @click="toggleTheme">
         Toggle Theme
       </v-btn>
