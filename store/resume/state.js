@@ -9,8 +9,8 @@ export default () => {
       links: {
         linkedIn: 'https://www.linkedin.com/in/mahdi-farhang-bb3ab3202',
         telegram: 'https://t.me/lVIahdi',
-        github: 'https://github.com/mahdifarhang',
         gitlab: 'https://gitlab.com/mahdifarhang',
+        github: 'https://github.com/mahdifarhang',
         twitter: 'https://twitter.com/The_Mahdi_'
       }
     }

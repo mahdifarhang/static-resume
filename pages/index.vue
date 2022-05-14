@@ -12,15 +12,15 @@
               <span class="section-title">{{ capitalize("Contacts") }}</span>
               <v-row align="center">
                 <v-btn icon :href="`tel:${contacts.email}`">
-                  <v-icon>mdi-phone</v-icon>
+                  <v-icon>{{ icons.phone }}</v-icon>
                 </v-btn>
-                {{ contacts.phone }}
+                <span>{{ contacts.phone }}</span>
               </v-row>
               <v-row align="center">
                 <v-btn icon :href="`mailto:${contacts.email}`">
-                  <v-icon>mdi-email</v-icon>
+                  <v-icon>{{ icons.email }}</v-icon>
                 </v-btn>
-                {{ contacts.email }}
+                <span>{{ contacts.email }}</span>
               </v-row>
               <v-row>
                 <v-btn
@@ -52,12 +52,14 @@ export default {
   data: () => {
     return {
       icons: {
-        telegram: 'mdi-telegram',
-        instagram: 'mdi-instagram',
-        gitlab: 'mdi-gitlab',
-        github: 'mdi-github',
-        twitter: 'mdi-twitter',
-        linkedIn: 'mdi-linkedin'
+        phone: 'fa-solid fa-phone',
+        email: 'fa-solid fa-envelope',
+        telegram: 'fa-brands fa-telegram',
+        instagram: 'fa-brands fa-instagram',
+        gitlab: 'fa-brands fa-gitlab',
+        github: 'fa-brands fa-github',
+        twitter: 'fa-brands fa-twitter',
+        linkedIn: 'fa-brands fa-linkedin'
       }
     }
   },
