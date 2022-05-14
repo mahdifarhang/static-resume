@@ -14,6 +14,146 @@ export default () => {
         twitter: 'https://twitter.com/The_Mahdi_'
       }
     },
+    categories: [
+      {
+        name: 'Programming Languages',
+        skills: [
+          {
+            name: 'C / C++',
+            percentage: 70
+          },
+          {
+            name: 'Python',
+            percentage: 90
+          },
+          {
+            name: 'Java Script',
+            percentage: 70
+          },
+          {
+            name: 'Java',
+            percentage: 60
+          },
+          {
+            name: 'Verilog',
+            percentage: 50
+          }
+        ],
+        others: [
+          'Rust',
+          'PHP',
+          'Typescript',
+          'Visual Basics'
+        ]
+      },
+      {
+        name: 'Backend Web Development',
+        skills: [
+          {
+            name: 'Django',
+            percentage: 80
+          },
+          {
+            name: 'DRF',
+            percentage: 90
+          }
+        ],
+        others: [
+          'Flask',
+          'FastAPI',
+          'Laravel',
+          'Spring'
+        ]
+      },
+      {
+        name: 'Frontend Web Development',
+        skills: [
+          {
+            name: 'Vue.js',
+            percentage: 70
+          },
+          {
+            name: 'Nuxt.js',
+            percentage: 60
+          },
+          {
+            name: 'HTML / CSS',
+            percentage: 60
+          }
+        ],
+        others: [
+          'jquery',
+          'React'
+        ]
+      },
+      {
+        name: 'Databases',
+        skills: [
+          {
+            name: 'SQL',
+            percentage: 80
+          }
+        ],
+        others: [
+          'PostgresQL',
+          'MySql',
+          'MongoDB',
+          'Redis',
+          'ElasticSearch'
+        ]
+      },
+      {
+        name: 'General Skills',
+        skills: [
+          {
+            name: 'Agile / Scrum',
+            percentage: 60
+          },
+          {
+            name: 'Git',
+            percentage: 90
+          },
+          {
+            name: 'Docker / Docker Compose',
+            percentage: 80
+          },
+          {
+            name: 'Nginx',
+            percentage: 70
+          }
+        ],
+        others: [
+          'Software Architecture',
+          'Design Patterns',
+          'Documentation'
+        ]
+      },
+      {
+        name: 'Applications & Tools',
+        skills: [],
+        others: [
+          'Linux',
+          'System Administration',
+          'Jetbrains IDEs',
+          'Jira',
+          'JupyterLab'
+        ]
+      },
+      {
+        name: 'Languages',
+        skills: [
+          {
+            name: 'English',
+            percentage: 80
+          },
+          {
+            name: 'Persian',
+            percentage: 90
+          }
+        ],
+        others: []
+      }
+    ],
     experiences: [
       {
         title: 'ERP & Full-Stack Developer',
