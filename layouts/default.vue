@@ -7,6 +7,7 @@
       </v-container>
     </v-main>
     <v-footer
+      style="background: transparent !important;"
       app
     >
       <!--    <v-footer-->
