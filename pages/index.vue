@@ -3,7 +3,7 @@
     <v-col cols="12" lg="8" md="10" sm="12" xl="6">
       <v-card :style="{background: $vuetify.theme.themes[theme].secondBackground}" elevation="4">
         <v-card-title class="ma-2">
-          <span class="resume-title">{{ capitalize(getName()) }}</span>
+          <span class="resume-title info--text">{{ capitalize(getName()) }}</span>
         </v-card-title>
         <v-card-subtitle class="ma-2">
           <span class="accent--text">{{ capitalize(position) }}</span>

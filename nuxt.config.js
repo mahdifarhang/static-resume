@@ -1,5 +1,3 @@
-import colors from 'vuetify/es5/util/colors'
-
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -52,18 +50,18 @@ export default {
     defaultAssets: { icons: 'fa' },
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: false,
+      dark: true,
       themes: {
         dark: {
-          background: '#38383a',
-          secondBackground: '#1e1e1e',
-          primary: colors.teal.base,
-          accent: colors.teal.lighten3,
-          secondary: colors.teal.base,
-          info: colors.teal.lighten5,
-          warning: colors.blue.lighten5,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          background: '#191B1A', // Whole page background
+          secondBackground: '#2B2C28', // Card Background
+          primary: '#339989', // Icons
+          accent: '#942939', // Titles
+          secondary: '#99CAC2', // bars and chips
+          info: '#E6EEED', // Writings.
+          warning: '#27233A', // Dividers - Lines
+          error: '#339989', // Skill Names
+          success: '#339989' // Skill Chips
         },
         light: {
           background: '#ccc9c4', // Whole page background
