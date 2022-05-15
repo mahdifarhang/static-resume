@@ -49,14 +49,30 @@
             <v-col
               cols="12"
               sm="12"
-              md="8"
-              lg="8"
-              xl="8"
+              lg="5"
+              md="5"
+              xl="5"
               class="pa-3"
             >
               <div class="pa-0 mt-1 mb-2">
                 <span class="section-title">{{ capitalize("Profile") }}</span>
               </div>
+            </v-col>
+            <v-col
+              class="pa-3"
+              cols="12"
+              lg="3"
+              md="3"
+              sm="12"
+              xl="3"
+            >
+              <v-avatar
+                size="200px"
+              >
+                <v-img
+                  src="profile.jpg"
+                />
+              </v-avatar>
             </v-col>
           </v-row>
           <v-divider class="my-2" />
