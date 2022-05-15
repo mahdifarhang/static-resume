@@ -6,15 +6,17 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: "Mahdi Farhang's Resume",
-    title: '',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Mahdi Farhang is a Fullstack Developer, and has experience working with Django and Vue.js'
+      },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [

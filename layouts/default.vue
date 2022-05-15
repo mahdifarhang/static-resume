@@ -26,11 +26,6 @@
 <script>
 export default {
   name: 'DefaultLayout',
-  data () {
-    return {
-      title: 'Vuetify.js'
-    }
-  },
   computed: {
     theme () {
       return (this.$vuetify.theme.dark) ? 'dark' : 'light'

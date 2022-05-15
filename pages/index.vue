@@ -136,6 +136,11 @@ export default {
       }
     }
   },
+  head: () => {
+    return {
+      title: "Mahdi Farhang's resume"
+    }
+  },
   computed: {
     ...mapState('resume', ['position', 'contacts', 'educations', 'experiences', 'about']),
     ...mapGetters('resume', ['getName', 'capitalize'])
