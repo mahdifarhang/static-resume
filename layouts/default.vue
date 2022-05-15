@@ -2,13 +2,17 @@
   <v-app :style="{background: $vuetify.theme.themes[theme].background}">
     <!--    <v-app-bar fixed app />-->
     <v-main>
-      <v-container>
+      <v-container fluid>
         <Nuxt />
       </v-container>
     </v-main>
     <v-footer
       app
     >
+      <!--    <v-footer-->
+      <!--      :style="{background: $vuetify.theme.themes[theme].secondBackground}"-->
+      <!--      app-->
+      <!--    >-->
       <span>&copy; {{ new Date().getFullYear() }}</span>
       <v-spacer />
       <v-btn rounded text @click="toggleTheme">

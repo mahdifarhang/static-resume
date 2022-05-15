@@ -52,10 +52,11 @@ export default {
     defaultAssets: { icons: 'fa' },
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           background: '#38383a',
+          secondBackground: '#1e1e1e',
           primary: colors.teal.base,
           accent: colors.teal.lighten3,
           secondary: colors.teal.base,
@@ -65,14 +66,15 @@ export default {
           success: colors.green.accent3
         },
         light: {
-          background: '#d8ddde',
-          primary: colors.teal.darken2, // Icons
-          accent: colors.blueGrey.base, // Titles
-          secondary: colors.teal.darken2, // bars and chips
-          info: colors.blueGrey.darken4, // Writings.
-          warning: colors.grey.base, // Dividers - Lines
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          background: '#ccc9c4', // Whole page background
+          secondBackground: '#ffffff', // Card Background
+          primary: '#867c81', // Icons
+          accent: '#942939', // Titles
+          secondary: '#867c81', // bars and chips
+          info: '#27233A', // Writings.
+          warning: '#27233A', // Dividers - Lines
+          error: '#867c81', // Skill Names
+          success: '#505168' // Skill Chips
         }
       }
     }

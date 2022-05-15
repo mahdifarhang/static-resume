@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center" align="center" class="pa-0">
     <v-col cols="12" lg="8" md="10" sm="12" xl="6">
-      <v-card elevation="4">
+      <v-card :style="{background: $vuetify.theme.themes[theme].secondBackground}" elevation="4">
         <v-card-title class="ma-2">
           <span class="resume-title">{{ capitalize(getName()) }}</span>
         </v-card-title>
@@ -62,7 +62,7 @@
               order-xl="second"
             >
               <div class="pa-0 mt-1 mb-2">
-                <span class="section-title accent--text">{{ capitalize("Profile") }}</span>
+                <span class="section-title accent--text">{{ capitalize("About") }}</span>
               </div>
               <span class="info--text">{{ about }}</span>
             </v-col>
@@ -177,7 +177,10 @@ export default {
   },
   computed: {
     ...mapState('resume', ['position', 'contacts', 'educations', 'experiences', 'about']),
-    ...mapGetters('resume', ['getName', 'capitalize'])
+    ...mapGetters('resume', ['getName', 'capitalize']),
+    theme () {
+      return (this.$vuetify.theme.dark) ? 'dark' : 'light'
+    }
   }
 }
 </script>

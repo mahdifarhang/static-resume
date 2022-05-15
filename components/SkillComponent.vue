@@ -2,7 +2,7 @@
   <div class="ma-0 pa-0">
     <v-row class="ma-0 pa-1">
       <v-col class="ma-0 px-1" cols="4">
-        <span class="secondary--text">{{ skill.name }}</span>
+        <span class="error--text">{{ skill.name }}</span>
       </v-col>
       <v-col class="ma-0 px-1" cols="8">
         <v-progress-linear

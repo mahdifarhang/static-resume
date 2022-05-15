@@ -7,7 +7,7 @@
         </p>
         <skill-component v-for="skill in category.skills" :key="skill.name" :skill="skill" class="pa-0 ma-0" />
         <v-row class="pa-1 ma-0">
-          <v-chip v-for="skill in category.others" :key="skill" class="ma-1" color="secondary" outlined>
+          <v-chip v-for="skill in category.others" :key="skill" class="ma-1" color="success">
             {{ skill }}
           </v-chip>
         </v-row>
