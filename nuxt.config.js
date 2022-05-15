@@ -54,22 +54,21 @@ export default {
       themes: {
         dark: {
           background: '#38383a',
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
+          primary: colors.teal.base,
+          accent: colors.teal.lighten3,
+          secondary: colors.teal.base,
+          info: colors.teal.lighten5,
+          warning: colors.blue.lighten5,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3
         },
         light: {
           background: '#d8ddde',
-          primary: colors.green.darken2, // Icons
-          // primary: colors.blueGrey.darken2, // Icons
-          accent: colors.lightBlue.darken2, // Titles
-          secondary: colors.red.lighten2, // bars and chips
+          primary: colors.teal.darken2, // Icons
+          accent: colors.blueGrey.base, // Titles
+          secondary: colors.teal.darken2, // bars and chips
           info: colors.blueGrey.darken4, // Writings.
-          warning: colors.amber.base,
+          warning: colors.grey.base, // Dividers - Lines
           error: colors.deepOrange.accent4,
           success: colors.green.accent3
         }

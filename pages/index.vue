@@ -77,7 +77,7 @@
               </v-avatar>
             </v-col>
           </v-row>
-          <v-divider class="my-2" />
+          <v-divider class="my-2 warning" />
           <v-row class="pa-2">
             <v-col
               cols="12"
@@ -93,7 +93,7 @@
               <v-row v-for="education in educations" :key="education.title" class="pa-1 ma-0">
                 <periodic-action :action="education" />
               </v-row>
-              <v-divider class="mb-5" />
+              <v-divider class="mb-5 warning" />
               <div class="pa-0 mt-1 mb-2">
                 <span class="section-title accent--text">{{ capitalize("Experiences") }}</span>
               </div>

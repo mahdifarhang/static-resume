@@ -2,7 +2,7 @@
   <div>
     <v-row v-for="category in categories" :key="category.name" class="pa-1 ma-0">
       <v-col class="ma-0 pa-0" cols="12">
-        <v-divider class="mb-4" />
+        <v-divider class="mb-4 warning" />
         <p class="info--text">
           {{ category.name }}
         </p>
