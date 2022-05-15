@@ -58,7 +58,7 @@
               <div class="pa-0 mt-1 mb-2">
                 <span class="section-title accent--text">{{ capitalize("Profile") }}</span>
               </div>
-              <span class="info--text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</span>
+              <span class="info--text">{{ about }}</span>
             </v-col>
             <v-col
               class="pa-3"
@@ -137,7 +137,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('resume', ['position', 'contacts', 'educations', 'experiences']),
+    ...mapState('resume', ['position', 'contacts', 'educations', 'experiences', 'about']),
     ...mapGetters('resume', ['getName', 'capitalize'])
   }
 }
