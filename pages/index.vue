@@ -79,7 +79,7 @@
               order-xl="last"
               sm="6"
             >
-              <v-row justify="center">
+              <v-row justify="center mt-10">
                 <v-card max-width="150px" min-width="70px" style="border-radius: 50%;">
                   <v-img src="profile.jpg" />
                 </v-card>
