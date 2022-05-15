@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center" align="center" class="pa-0">
-    <v-col cols="12" lg="8" md="10" sm="12" xl="8">
+    <v-col cols="12" lg="8" md="10" sm="12" xl="6">
       <v-card elevation="4">
         <v-card-title class="ma-2">
           <span class="resume-title">{{ capitalize(getName()) }}</span>
@@ -68,13 +68,9 @@
               sm="12"
               xl="3"
             >
-              <v-avatar
-                size="200px"
-              >
-                <v-img
-                  src="profile.jpg"
-                />
-              </v-avatar>
+              <v-card max-width="150px" min-width="70px" style="border-radius: 50%;">
+                <v-img src="profile.jpg" />
+              </v-card>
             </v-col>
           </v-row>
           <v-divider class="my-2 warning" />
