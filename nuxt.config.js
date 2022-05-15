@@ -59,7 +59,7 @@ export default {
           accent: '#942939', // Titles
           secondary: '#99CAC2', // bars and chips
           info: '#E6EEED', // Writings.
-          warning: '#27233A', // Dividers - Lines
+          warning: '#E6EEED', // Dividers - Lines
           error: '#339989', // Skill Names
           success: '#339989' // Skill Chips
         },
