@@ -53,6 +53,7 @@ export default {
       dark: false,
       themes: {
         dark: {
+          background: '#38383a',
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
@@ -62,10 +63,12 @@ export default {
           success: colors.green.accent3
         },
         light: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
+          background: '#d8ddde',
+          primary: colors.green.darken2, // Icons
+          // primary: colors.blueGrey.darken2, // Icons
+          accent: colors.lightBlue.darken2, // Titles
+          secondary: colors.red.lighten2, // bars and chips
+          info: colors.blueGrey.darken4, // Writings.
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3

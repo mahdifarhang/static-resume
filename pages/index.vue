@@ -1,12 +1,12 @@
 <template>
   <v-row justify="center" align="center" class="pa-0">
     <v-col cols="12" lg="8" md="10" sm="12" xl="8">
-      <v-card>
+      <v-card elevation="4">
         <v-card-title class="ma-2">
           <span class="resume-title">{{ capitalize(getName()) }}</span>
         </v-card-title>
         <v-card-subtitle class="ma-2">
-          {{ capitalize(position) }}
+          <span class="accent--text">{{ capitalize(position) }}</span>
         </v-card-subtitle>
         <v-card-text class="ma-2">
           <v-row class="pa-2" justify="center">
@@ -19,19 +19,19 @@
               class="pa-3"
             >
               <div class="pa-0 mt-1 mb-2">
-                <span class="section-title">{{ capitalize("Contacts") }}</span>
+                <span class="section-title accent--text">{{ capitalize("Contacts") }}</span>
               </div>
               <v-row align="center" class="pa-1 ma-0">
-                <v-btn icon :href="`tel:${contacts.email}`">
+                <v-btn :href="`tel:${contacts.email}`" color="primary" icon>
                   <v-icon>{{ icons.phone }}</v-icon>
                 </v-btn>
-                <span class="ml-2">{{ contacts.phone }}</span>
+                <span class="ml-2 info--text">{{ contacts.phone }}</span>
               </v-row>
               <v-row align="center" class="pa-1 ma-0">
-                <v-btn icon :href="`mailto:${contacts.email}`">
+                <v-btn :href="`mailto:${contacts.email}`" color="primary" icon>
                   <v-icon>{{ icons.email }}</v-icon>
                 </v-btn>
-                <span class="ml-2">{{ contacts.email }}</span>
+                <span class="ml-2 info--text">{{ contacts.email }}</span>
               </v-row>
               <v-row class="pa-1 ma-0">
                 <v-btn
@@ -39,6 +39,7 @@
                   :key="key"
                   icon
                   :href="value"
+                  color="primary"
                 >
                   <v-icon>
                     {{ icons[key] }}
@@ -55,8 +56,9 @@
               class="pa-3"
             >
               <div class="pa-0 mt-1 mb-2">
-                <span class="section-title">{{ capitalize("Profile") }}</span>
+                <span class="section-title accent--text">{{ capitalize("Profile") }}</span>
               </div>
+              <span class="info--text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</span>
             </v-col>
             <v-col
               class="pa-3"
@@ -86,14 +88,14 @@
               class="pa-3"
             >
               <div class="pa-0 mt-1 mb-2">
-                <span class="section-title">{{ capitalize("Educations") }}</span>
+                <span class="section-title accent--text">{{ capitalize("Educations") }}</span>
               </div>
               <v-row v-for="education in educations" :key="education.title" class="pa-1 ma-0">
                 <periodic-action :action="education" />
               </v-row>
               <v-divider class="mb-5" />
               <div class="pa-0 mt-1 mb-2">
-                <span class="section-title">{{ capitalize("Experiences") }}</span>
+                <span class="section-title accent--text">{{ capitalize("Experiences") }}</span>
               </div>
               <v-row v-for="experience in experiences" :key="experience.title" class="pa-1 ma-0">
                 <periodic-action :action="experience" />
@@ -108,7 +110,7 @@
               class="pa-3"
             >
               <div class="pa-0 mt-1 mb-2">
-                <span class="section-title">{{ capitalize("Skills") }}</span>
+                <span class="section-title accent--text">{{ capitalize("Skills") }}</span>
                 <category-component />
               </div>
             </v-col>

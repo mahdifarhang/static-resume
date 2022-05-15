@@ -1,6 +1,8 @@
 <template>
   <div>
-    <p>{{ action.title }}</p>
+    <p class="info--text">
+      {{ action.title }}
+    </p>
     <p>{{ action.institutionName }}</p>
     <p><span>{{ action.period.start }}</span> - <span>{{ action.period.end }}</span></p>
   </div>

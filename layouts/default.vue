@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :style="{background: $vuetify.theme.themes[theme].background}">
     <v-app-bar fixed app>
       <v-btn text rounded @click="toggleTheme">
         Toggle Theme
@@ -25,6 +25,11 @@ export default {
   data () {
     return {
       title: 'Vuetify.js'
+    }
+  },
+  computed: {
+    theme () {
+      return (this.$vuetify.theme.dark) ? 'dark' : 'light'
     }
   },
   methods: {
