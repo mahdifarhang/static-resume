@@ -11,7 +11,7 @@
         <v-card-text class="ma-2">
           <v-row class="pa-2" justify="center">
             <v-col
-              cols="6"
+              cols="12"
               order="first"
               md="4"
               lg="4"
@@ -68,7 +68,7 @@
             </v-col>
             <v-col
               class="pa-3"
-              cols="6"
+              cols="12"
               lg="3"
               md="3"
               order="second"
