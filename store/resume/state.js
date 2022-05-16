@@ -128,6 +128,7 @@ export default () => {
         others: [
           'Software Architecture',
           'Design Patterns',
+          'Team Work',
           'Documentation'
         ]
       },
@@ -151,7 +152,7 @@ export default () => {
           },
           {
             name: 'Persian',
-            percentage: 90
+            percentage: 100
           }
         ],
         others: []

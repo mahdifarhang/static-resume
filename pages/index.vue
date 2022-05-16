@@ -6,7 +6,7 @@
           <span class="resume-title info--text">{{ capitalize(getName()) }}</span>
         </v-card-title>
         <v-card-subtitle class="ma-2">
-          <span class="accent--text">{{ capitalize(position) }}</span>
+          <span class="accent--text">{{ position }}</span>
         </v-card-subtitle>
         <v-card-text class="ma-2">
           <v-row class="pa-2" justify="center">

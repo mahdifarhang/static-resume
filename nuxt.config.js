@@ -50,7 +50,7 @@ export default {
     defaultAssets: { icons: 'fa' },
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: false,
+      dark: true,
       themes: {
         dark: {
           background: '#191B1A', // Whole page background
