@@ -15,7 +15,7 @@ export default () => {
         twitter: 'https://twitter.com/The_Mahdi_'
       }
     },
-    about: '',
+    about: 'As a 24-year-old programmer, I have done my Bachelor\'s in computer engineering and have worked in the field as well. I have collaborated on many projects (college, vocational, or self-defined) both individually or as a member of the executive team. I have met many challenges along the way, and I guess the most important thing that I can tell about myself is the ability to solve challenges and tackle problems, and my unstoppable passion to take the further step and learn more all the time.',
     // about: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
     categories: [
       {
