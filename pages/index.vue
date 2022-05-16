@@ -172,7 +172,7 @@ export default {
   },
   head: () => {
     return {
-      title: "Mahdi Farhang's resume"
+      title: 'Mahdi Farhang\'s Resume'
     }
   },
   computed: {
