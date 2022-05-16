@@ -14,7 +14,7 @@
       <!--      :style="{background: $vuetify.theme.themes[theme].secondBackground}"-->
       <!--      app-->
       <!--    >-->
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <!--      <span>&copy; {{ new Date().getFullYear() }}</span>-->
       <v-spacer />
       <v-btn rounded text @click="toggleTheme">
         <v-icon v-if="theme === 'dark'">
