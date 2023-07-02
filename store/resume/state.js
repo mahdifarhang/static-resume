@@ -164,6 +164,14 @@ export default () => {
     ],
     experiences: [
       {
+        title: 'Backend Django Developer',
+        period: {
+          start: 'Jun 2022',
+          end: 'Present'
+        },
+        institutionName: 'Nobitex Company'
+      },
+      {
         title: 'ERP & Full-Stack Developer',
         period: {
           start: 'Aug 2020',
