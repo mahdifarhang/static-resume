@@ -106,10 +106,10 @@
                   xl="12"
                 >
                   <div class="pa-0 mt-1 mb-2">
-                    <span class="section-title accent--text">{{ capitalize("Educations") }}</span>
+                    <span class="section-title accent--text">{{ capitalize("Experiences") }}</span>
                   </div>
-                  <v-row v-for="education in educations" :key="education.title" class="pa-1 ma-0">
-                    <periodic-action :action="education" />
+                  <v-row v-for="experience in experiences" :key="experience.title" class="pa-1 ma-0">
+                    <periodic-action :action="experience" />
                   </v-row>
                   <v-divider class="my-2 warning" />
                 </v-col>
@@ -122,10 +122,10 @@
                   xl="12"
                 >
                   <div class="pa-0 mt-1 mb-2">
-                    <span class="section-title accent--text">{{ capitalize("Experiences") }}</span>
+                    <span class="section-title accent--text">{{ capitalize("Educations") }}</span>
                   </div>
-                  <v-row v-for="experience in experiences" :key="experience.title" class="pa-1 ma-0">
-                    <periodic-action :action="experience" />
+                  <v-row v-for="education in educations" :key="education.title" class="pa-1 ma-0">
+                    <periodic-action :action="education" />
                   </v-row>
                   <v-divider class="my-2 warning" />
                 </v-col>
