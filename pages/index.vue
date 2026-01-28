@@ -6,7 +6,7 @@
           <span class="resume-title info--text">{{ capitalize(getName()) }}</span>
         </v-card-title>
         <v-card-subtitle class="ma-2">
-          <span class="accent--text">{{ position }}</span>
+          <h1 class="accent--text">{{ position }}</h1>
         </v-card-subtitle>
         <v-card-text class="ma-2">
           <v-row class="pa-2" justify="center">
@@ -22,8 +22,13 @@
               <div class="pa-0 mt-1 mb-2">
                 <span class="section-title accent--text">{{ capitalize("Contacts") }}</span>
               </div>
+              <v-row class="mt-5 mb-2 ml-2">
+                <v-card max-width="150px" min-width="70px" style="border-radius: 50%;">
+                  <v-img src="profile.jpg" />
+                </v-card>
+              </v-row>
               <v-row align="center" class="pa-1 ma-0">
-                <v-btn :href="`tel:${contacts.phone}`" color="primary" icon>
+                <v-btn v-if="contacts.phone" :href="`tel:${contacts.phone}`" color="primary" icon>
                   <v-icon>{{ icons.phone }}</v-icon>
                 </v-btn>
                 <span class="ml-2 info--text">{{ contacts.phone }}</span>
@@ -51,9 +56,9 @@
             <v-col
               cols="12"
               sm="12"
-              lg="5"
-              md="5"
-              xl="5"
+              lg="8"
+              md="8"
+              xl="8"
               class="pa-3"
               order="last"
               order-lg="second"
@@ -64,85 +69,38 @@
               <div class="pa-0 mt-1 mb-2">
                 <span class="section-title accent--text">{{ capitalize("About") }}</span>
               </div>
-              <span class="info--text">{{ about }}</span>
-            </v-col>
-            <v-col
-              class="pa-3"
-              cols="12"
-              lg="3"
-              md="3"
-              order="second"
-              xl="3"
-              order-lg="last"
-              order-md="last"
-              order-sm="second"
-              order-xl="last"
-              sm="6"
-            >
-              <v-row class="mt-10 mb-2" justify="center">
-                <v-card max-width="150px" min-width="70px" style="border-radius: 50%;">
-                  <v-img src="profile.jpg" />
-                </v-card>
-              </v-row>
+              <span class="info--text about-text">{{ about }}</span>
             </v-col>
           </v-row>
           <v-divider class="my-2 warning" />
           <v-row class="pa-2">
-            <v-col
-              cols="12"
-              sm="12"
-              md="4"
-              lg="4"
-              xl="4"
-              class="pa-3"
-            >
+            <v-col cols="12" class="pa-3">
+              <div class="pa-0 mt-1 mb-2">
+                <span class="section-title accent--text">{{ capitalize("Experiences") }}</span>
+              </div>
+              <div v-for="(experience, index) in experiences" :key="experience.organization" class="m-0 p-0">
+                <v-row class="pa-1 ma-0">
+                  <experience-group :experience="experience" />
+                </v-row>
+                <v-divider v-if="index !== experiences.length - 1" class="my-2 warning" />
+              </div>
+              <v-divider class="my-2 warning" />
               <v-row class="pa-0 ma-0">
-                <v-col
-                  class="pa-0 ma-0"
-                  cols="6"
-                  lg="12"
-                  md="12"
-                  sm="6"
-                  xl="12"
-                >
-                  <div class="pa-0 mt-1 mb-2">
-                    <span class="section-title accent--text">{{ capitalize("Experiences") }}</span>
-                  </div>
-                  <v-row v-for="experience in experiences" :key="experience.title" class="pa-1 ma-0">
-                    <periodic-action :action="experience" />
-                  </v-row>
-                  <v-divider class="my-2 warning" />
-                </v-col>
-                <v-col
-                  class="pa-0 ma-0"
-                  cols="6"
-                  lg="12"
-                  md="12"
-                  sm="6"
-                  xl="12"
-                >
+                <v-col cols="12" md="4" lg="4" xl="4" class="pa-3">
                   <div class="pa-0 mt-1 mb-2">
                     <span class="section-title accent--text">{{ capitalize("Educations") }}</span>
                   </div>
                   <v-row v-for="education in educations" :key="education.title" class="pa-1 ma-0">
                     <periodic-action :action="education" />
                   </v-row>
-                  <v-divider class="my-2 warning" />
+                </v-col>
+                <v-col cols="12" md="8" lg="8" xl="8" class="pa-3">
+                  <div class="pa-0 mt-1 mb-2">
+                    <span class="section-title accent--text">{{ capitalize("Skills") }}</span>
+                    <category-component />
+                  </div>
                 </v-col>
               </v-row>
-            </v-col>
-            <v-col
-              cols="12"
-              sm="12"
-              md="8"
-              lg="8"
-              xl="8"
-              class="pa-3"
-            >
-              <div class="pa-0 mt-1 mb-2">
-                <span class="section-title accent--text">{{ capitalize("Skills") }}</span>
-                <category-component />
-              </div>
             </v-col>
           </v-row>
         </v-card-text>
@@ -196,5 +154,9 @@ export default {
   font-weight: 500;
   font-size: 1.5em;
   letter-spacing: 0.05em;
+}
+
+.about-text {
+  white-space: pre-line;
 }
 </style>

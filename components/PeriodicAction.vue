@@ -1,10 +1,11 @@
 <template>
   <div>
-    <p class="info--text">
+    <h3 class="info--text">
       {{ action.title }}
-    </p>
-    <p>{{ action.institutionName }}</p>
+    </h3>
+    <h4>{{ action.institutionName }}</h4>
     <p><span>{{ action.period.start }}</span> - <span>{{ action.period.end }}</span></p>
+    <p v-if="action.summary" class="mb-0">{{ action.summary }}</p>
   </div>
 </template>
 
