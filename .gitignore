@@ -47,6 +47,7 @@ typings/
 # Optional yarn cache directory
 .yarn
 .yarnrc.yml
+yarn.lock
 
 # Optional eslint cache
 .eslintcache
