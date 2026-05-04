@@ -8,6 +8,7 @@
     </v-main>
     <v-footer
       style="background: transparent !important;"
+      class="no-print"
       app
     >
       <!--    <v-footer-->

@@ -105,6 +105,9 @@
           </v-row>
         </v-card-text>
       </v-card>
+      <div class="print-only-link">
+        <a href="https://resume.mfarhang.ir">resume.mfarhang.ir</a>
+      </div>
     </v-col>
   </v-row>
 </template>
@@ -158,5 +161,9 @@ export default {
 
 .about-text {
   white-space: pre-line;
+}
+
+.print-only-link {
+  display: none;
 }
 </style>

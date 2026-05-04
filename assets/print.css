@@ -1,0 +1,116 @@
+@media print {
+  /* ── Page setup ─────────────────────────────────────────────
+     margin: 0 suppresses Chrome/Edge's built-in timestamp & URL
+     header/footer; page padding is handled by .v-main below.   */
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  /* ── Force dark colours to ink ──────────────────────────── */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  html,
+  body {
+    background: #191b1a !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .v-application {
+    background: #191b1a !important;
+  }
+
+  /* ── Outer card ─────────────────────────────────────────── */
+  .v-card {
+    background: #2b2c28 !important;
+    box-shadow: none !important;
+  }
+
+  /* ── Replace Vuetify's grey chip bg with exact colours ──── */
+  .v-chip {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* ── Make sure profile photo actually prints ────────────── */
+  .v-image__image {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .v-responsive__content img,
+  .v-image img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* ── Give the page real margins (since @page margin is 0) ── */
+  .v-main {
+    padding: 12mm 15mm !important;
+  }
+
+  /* ── Hide UI chrome ─────────────────────────────────────── */
+  .v-footer,
+  .v-app-bar,
+  .no-print {
+    display: none !important;
+  }
+
+  /* ── Show PDF-only link ─────────────────────────────────── */
+  .print-only-link {
+    display: block !important;
+    text-align: center;
+    margin-top: 8mm;
+    color: #99cac2 !important;
+  }
+
+  .print-only-link a {
+    color: #339989 !important;
+    text-decoration: none;
+  }
+
+  /* ── Pagination: keep logical blocks together ────────────── */
+
+  /* each position inside an experience — prevent mid-position breaks */
+  .experience-group .mb-3 {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* each skill category row */
+  .v-row.pa-1.ma-0 {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* education entries */
+  .v-row.pa-1.ma-0 > div {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* never break inside a chip */
+  .v-chip {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* section headings stay with content below them */
+  .section-title {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+}
