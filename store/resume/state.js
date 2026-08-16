@@ -20,6 +20,34 @@ export default () => {
       I have met many challenges along the way, and I guess the most important thing that I can tell about myself is the ability to solve challenges and tackle problems, and my unstoppable passion to take the further step and learn more all the time.`,
     experiences: [
       {
+        organization: 'دیدار زیباترین دختر عالم',
+        mainTitle: '♥️♥️♥️ زهرا خانوم شهرستانی ♥️♥️♥️',
+        positions: [
+          {
+            title: 'کافه مدلن',
+            period: {
+              start: 'ساعت ۶ عصر',
+              end: '۳۰ اردیبهشت ۱۴۰۵'
+            },
+            summary: 'یک سلامم را اگر پاسخ بگویی میروم، لذتش را با تمام شهر قسمت میکنم'
+          },
+          {
+            title: 'کافه نی',
+            period: {
+              start: 'ساعت ۱۲ ظهر',
+              end: '۱۶ خرداد ۱۴۰۵'
+            },
+            summary: `در هیچ زمانه ای نزاده ست، مادر به جمال چون تو فرزند`
+          }
+        ],
+        period: {
+          start: '12 May',
+          end: 'Present'
+        },
+        institutionName: 'Mashhad, Madelan Cafe',
+        summary: 'The Most beautiful girl in the world, '
+      },
+      {
         organization: 'Nobitex',
         mainTitle: 'Software Engineer',
         positions: [
