@@ -1,116 +1,95 @@
+.print-resume { display: none; }
+
 @media print {
-  /* ── Page setup ─────────────────────────────────────────────
-     margin: 0 suppresses Chrome/Edge's built-in timestamp & URL
-     header/footer; page padding is handled by .v-main below.   */
-  @page {
-    size: A4;
+  /* Full-bleed page color; spacing belongs inside the document. */
+  @page { size: A4; margin: 0; }
+
+  html, body { width: 100%; margin: 0 !important; padding: 0 !important; }
+  .resume-app, .resume-app * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .v-application.resume-app {
+    display: block !important;
+    min-height: 0 !important;
+    background: var(--page) !important;
+    color: var(--body);
+    font-size: 9pt;
+  }
+  .v-application--wrap { display: block !important; min-height: 0 !important; }
+  .no-print, .skip-link { display: none !important; }
+  .resume-shell { width: 100%; margin: 0; padding: 0; }
+  .resume-sheet { margin: 0; padding: 0; border: 0; border-radius: 0; overflow: visible; background: transparent; box-shadow: none; }
+  .resume-sheet > :not(.print-resume) { display: none !important; }
+  .print-resume { display: block; }
+
+  .print-page {
+    position: relative;
+    width: 100%;
+    height: 297mm;
     margin: 0;
+    padding: 14mm 15mm 24mm;
+    background: var(--page);
+    color: var(--body);
+    break-after: page;
+    font-size: 9pt;
+    line-height: 1.6;
   }
+  .print-page:last-child { break-after: auto; }
+  .print-page a { color: var(--accent); text-decoration: none !important; }
+  .print-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .print-page .print-kicker { margin-bottom: 7px; color: var(--accent); font-size: 8pt; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
+  .print-name { color: var(--text); font-size: 32pt; font-weight: 700; line-height: 1.15; letter-spacing: -1.5px; }
+  .print-name > span { font-weight: 350; }
+  .print-page .print-specialties { margin-top: 11px; font-size: 8pt; color: var(--muted); }
+  .print-portrait { width: 86px; height: 86px; flex-shrink: 0; object-fit: cover; border: 4px solid var(--subtle); border-radius: 50%; outline: 1px solid var(--line); }
+  .print-page .print-introduction { margin: 12px 0 14px; font-size: 9pt; line-height: 1.7; }
+  .print-contacts { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 10px 0; font-size: 8pt; }
+  .print-contacts > a:first-child { margin-right: auto; }
+  .print-experience { margin-top: 16px; }
+  .print-page .print-section-title { color: var(--accent); font-size: 9pt; font-weight: 600; line-height: 1.5; letter-spacing: 1.7px; text-transform: uppercase; margin-bottom: 12px; }
+  .print-page .company-heading { margin-bottom: 10px; }
+  .print-page .company-heading h3 { font-size: 14pt; line-height: 1.3; }
+  .print-page .company-heading > p { font-size: 8pt; }
+  .print-page .company-heading .date-range { margin-top: 2px; }
+  .print-page .experience-group + .experience-group { margin-top: 14px; padding-top: 12px; }
+  .print-page .experience-timeline { margin: 0; padding: 0; border: 0; }
+  .print-page .experience-position::before { display: none; }
+  .print-page .experience-position + .experience-position { margin-top: 13px; }
+  .print-page .position-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+  .print-page .position-heading h4 { font-size: 10pt; line-height: 1.4; }
+  .print-page .date-range { font-size: 8pt; white-space: nowrap; }
+  .resume-app .print-page .position-summary { display: none; }
+  .resume-app .print-page .achievement-list { font-size: 9pt; line-height: 1.6; padding-left: 15px; }
+  .print-page .achievement-list li { padding-left: 2px; margin-bottom: 4px; }
+  .resume-app .print-page .technology-list { margin-top: 7px; font-size: 7.5pt; gap: 4px 10px; }
+  .print-page .technology-list li + li::before { margin-right: 10px; }
 
-  /* ── Force dark colours to ink ──────────────────────────── */
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color-adjust: exact !important;
-  }
-
-  html,
-  body {
-    background: #191b1a !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100% !important;
-  }
-
-  .v-application {
-    background: #191b1a !important;
-  }
-
-  /* ── Outer card ─────────────────────────────────────────── */
-  .v-card {
-    background: #2b2c28 !important;
-    box-shadow: none !important;
-  }
-
-  /* ── Replace Vuetify's grey chip bg with exact colours ──── */
-  .v-chip {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  /* ── Make sure profile photo actually prints ────────────── */
-  .v-image__image {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  .v-responsive__content img,
-  .v-image img {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  /* ── Give the page real margins (since @page margin is 0) ── */
-  .v-main {
-    padding: 12mm 15mm !important;
-  }
-
-  /* ── Hide UI chrome ─────────────────────────────────────── */
-  .v-footer,
-  .v-app-bar,
-  .no-print {
-    display: none !important;
-  }
-
-  /* ── Show PDF-only link ─────────────────────────────────── */
-  .print-only-link {
-    display: block !important;
-    text-align: center;
-    margin-top: 8mm;
-    color: #99cac2 !important;
-  }
-
-  .print-only-link a {
-    color: #339989 !important;
-    text-decoration: none;
-  }
-
-  /* ── Pagination: keep logical blocks together ────────────── */
-
-  /* each position inside an experience — prevent mid-position breaks */
-  .experience-group .mb-3 {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-
-  /* each skill category row */
-  .v-row.pa-1.ma-0 {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-
-  /* education entries */
-  .v-row.pa-1.ma-0 > div {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-
-  /* never break inside a chip */
-  .v-chip {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-
-  /* section headings stay with content below them */
-  .section-title {
-    page-break-after: avoid;
-    break-after: avoid;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-    break-after: avoid;
-  }
+  .print-continuation { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+  .print-continuation h2 { font-size: 20pt; font-weight: 500; line-height: 1.3; letter-spacing: -.5px; }
+  .print-continuation > a { font-size: 8pt; white-space: nowrap; padding-top: 3px; }
+  .print-continuation .print-kicker { font-size: 7pt; letter-spacing: 1px; }
+  .print-details-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 30px; margin-top: 26px; }
+  .print-details-grid > div + div { border-left: 1px solid var(--line); padding-left: 30px; }
+  .print-page .skill-category { margin-bottom: 22px; }
+  .print-page .skill-category h3 { font-size: 9pt; margin-bottom: 8px; }
+  .resume-app .print-page .skill-list { gap: 5px; }
+  .print-page .skill-chip { border: 1px solid var(--line); padding: 3px 7px; font-size: 7.5pt; }
+  .resume-app .print-page .familiar-skills { margin-top: 8px; font-size: 8pt; }
+  .print-page .familiar-skills span { font-size: 7pt; }
+  .print-page .project-entry h3 { font-size: 13pt; }
+  .resume-app .print-page .project-meta { font-size: 7.5pt; }
+  .resume-app .print-page .project-summary { margin: 10px 0; font-size: 9pt; line-height: 1.7; }
+  .resume-app .print-page .project-highlights { margin-bottom: 14px; padding-left: 15px; font-size: 9pt; line-height: 1.7; }
+  .print-page .project-highlights li { margin-bottom: 7px; }
+  .print-education, .print-languages { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); }
+  .print-page .education-entry + .education-entry { margin-top: 20px; }
+  .print-page .education-entry h3 { font-size: 10pt; }
+  .print-page .education-entry .institution { font-size: 9pt; margin-top: 4px; }
+  .resume-app .print-page .education-summary { margin-top: 6px; font-size: 8pt; }
+  .print-footer { position: absolute; bottom: 12mm; left: 15mm; right: 15mm; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 10px; border-top: 1px solid var(--line); color: var(--muted); font-size: 7pt; }
+  .print-footer > span:last-child { font-family: ui-monospace, monospace; }
+  h2, h3, h4 { break-after: avoid; }
+  .experience-position, .skill-category, .project-entry, .education-entry { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
 }

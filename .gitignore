@@ -76,6 +76,9 @@ yarn.lock
 # Nuxt generate
 dist
 
+# Generated resume PDF exports
+/output/pdf/
+
 # vuepress build output
 .vuepress/dist
 

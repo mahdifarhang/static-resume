@@ -1,51 +1,31 @@
 <template>
-  <div class="experience-group mb-0">
-    <h2 class="info--text mb-4">
-      {{ experience.organization }}
-    </h2>
-    <h2 class="mb-3">{{ experience.mainTitle }}</h2>
-    <div v-for="(position, index) in experience.positions" :key="position.title" class="mb-3 ml-3">
-      <h3 class="mb-1">{{ position.title }}</h3>
-      <p class="mb-1 ml-4">
-        <span>{{ position.period.start }}</span> - <span>{{ position.period.end }}</span>
-      </p>
-      <p class="ma-0 position-summary ml-8 mt-2">{{ position.summary }}</p>
-      <v-row
-        v-if="index !== experience.positions.length - 1"
-        justify="center"
-        class="mb-1 mt-5"
-      >
-        <v-col cols="10" class="pa-0">
-          <v-divider class="warning" />
-        </v-col>
-      </v-row>
+  <section class="experience-group" :aria-label="experience.organization">
+    <div class="company-heading">
+      <h3>{{ experience.organization }}</h3>
+      <p>{{ experience.mainTitle }}</p>
+      <p v-if="experience.period" class="date-range">{{ experience.period.start }} — {{ experience.period.end }}</p>
     </div>
-  </div>
+    <div class="experience-timeline">
+      <section v-for="position in experience.positions" :key="position.title" class="experience-position">
+        <div class="position-heading">
+          <h4>{{ position.title }}</h4>
+          <p v-if="position.period" class="date-range">{{ position.period.start }} — {{ position.period.end }}</p>
+        </div>
+        <p v-if="position.summary" class="position-summary">{{ position.summary }}</p>
+        <ul v-if="position.highlights" class="achievement-list">
+          <li v-for="highlight in position.highlights" :key="highlight">{{ highlight }}</li>
+        </ul>
+        <ul class="technology-list" aria-label="Technologies and focus">
+          <li v-for="technology in position.technologies" :key="technology">{{ technology }}</li>
+        </ul>
+      </section>
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
   name: 'ExperienceGroup',
-  props: {
-    experience: {
-      type: Object,
-      required: true
-    }
-  }
+  props: { experience: { type: Object, required: true } }
 }
 </script>
-
-<style scoped>
-.experience-group {
-  margin-bottom: 16px;
-}
-
-.position-summary {
-  white-space: pre-line;
-  line-height: 1.4;
-}
-
-.experience-meta {
-  white-space: nowrap;
-}
-</style>

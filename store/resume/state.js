@@ -1,215 +1,124 @@
-export default () => {
-  return {
-    firstname: 'Mahdi',
-    lastname: 'Farhang',
-    position: 'Software Engineer',
-    contacts: {
-      phone: null,
-      email: 'mafarhang76@gmail.com',
-      links: {
-        linkedIn: 'https://www.linkedin.com/in/mahdi-farhang-bb3ab3202',
-        telegram: 'https://t.me/lVIahdi',
-        // instagram: 'https://www.instagram.com/mahdifarhang76',
-        // twitter: 'https://twitter.com/The_Mahdi_',
-        gitlab: 'https://gitlab.com/mahdifarhang',
-        github: 'https://github.com/mahdifarhang'
-      }
+export default () => ({
+  firstname: 'Mahdi',
+  lastname: 'Farhang',
+  position: 'Software Engineer',
+  contacts: {
+    phone: null,
+    email: 'mafarhang76@gmail.com',
+    links: {
+      LinkedIn: 'https://www.linkedin.com/in/mahdi-farhang-bb3ab3202',
+      GitHub: 'https://github.com/mahdifarhang',
+      GitLab: 'https://gitlab.com/mahdifarhang',
+      Telegram: 'https://t.me/lVIahdi'
+    }
+  },
+  about: 'I’m a software engineer who enjoys understanding a problem end to end and turning it into useful, maintainable software. I’ve worked on backend services, full-stack applications, and business automation, from small-team projects to large production systems. Python, Django, and PostgreSQL are my main tools. I like digging into difficult bugs, improving how systems work, and learning new tools when a problem calls for them.',
+  specialties: ['Python & Django', 'API design & integration', 'PostgreSQL & query optimization'],
+  experiences: [
+    {
+      organization: 'Nobitex',
+      mainTitle: 'Cryptocurrency exchange',
+      period: { start: 'Jun 2022', end: 'Present' },
+      positions: [
+        {
+          title: 'Blockchain Developer',
+          period: { start: 'Jun 2025', end: 'Present' },
+          summary: 'Moved into the Blockchain team after three years in backend engineering, contributing to critical infrastructure and architectural changes.',
+          highlights: [
+            'Contributed to the redesign of withdrawal infrastructure, with a focus on transaction correctness, security, and reliability.',
+            'Integrated two new blockchain networks and worked on sensitive, high-impact production code.'
+          ],
+          technologies: ['Blockchain', 'Withdrawal systems', 'System design']
+        },
+        {
+          title: 'Backend Django Developer',
+          period: { start: 'Jun 2022', end: 'Jun 2025' },
+          summary: 'Built and maintained Back Office services used by finance, operations, product, marketing, support, and executive teams.',
+          highlights: [
+            'Designed and optimized PostgreSQL queries and backend logic over datasets containing billions of records.',
+            'Developed internal and user-facing APIs with Django and Django REST Framework, implementing fine-grained access controls for sensitive financial data.',
+            'Built asynchronous tasks and scheduled workflows with Celery, Redis, and Celery Beat.',
+            'Supported production observability with ELK, Prometheus, Grafana, and Sentry to investigate issues and improve service reliability.'
+          ],
+          technologies: ['Python', 'Django / DRF', 'PostgreSQL', 'Celery', 'Redis']
+        }
+      ]
     },
-    about: `As a ${Math.floor((new Date().getTime() - new Date(1998, 0, 27)) / (1000 * 60 * 60 * 24 * 365.25))}-year-old programmer, I have done my Bachelor's in computer engineering and have worked in the field as well.
-      I have collaborated on many projects (college, vocational, or self-defined) both individually or as a member of the executive team.
-      I have met many challenges along the way, and I guess the most important thing that I can tell about myself is the ability to solve challenges and tackle problems, and my unstoppable passion to take the further step and learn more all the time.`,
-    experiences: [
-      {
-        organization: 'Nobitex',
-        mainTitle: 'Software Engineer',
-        positions: [
-          {
-            title: 'Blockchain Developer',
-            period: {
-              start: 'Jun 2025',
-              end: 'Present'
-            },
-            summary: 'After working for three years in Exchange team, I joined the Blockchain team, where I worked for around six months and continue to work, contributing to critical architectural changes. I was trusted with high-impact, sensitive code, including redesigning the withdrawal infrastructure and integrating two new blockchain networks, with a strong focus on security, correctness, and reliability.'
-          },
-          {
-            title: 'Backend Django Developer',
-            period: {
-              start: 'Jun 2022',
-              end: 'Jun 2025'
-            },
-            summary: `I worked for nearly three years at Nobitex, Iran’s largest cryptocurrency exchange, as part of the Back Office engineering team, building and maintaining internal systems used across the company. Given the platform’s scale (11M+ users) and its financial nature, data accuracy, transaction integrity, and system reliability were critical at all times.
-            I worked extensively with large-scale datasets (billions of records), designing and optimizing high-performance database queries and backend logic to deliver fast and reliable results under heavy load. The system was used by executives, finance, product, marketing, operations, and support teams, making fine-grained access control, permissions, and data sensitivity a core part of the architecture.
-            In parallel, I was deeply involved in API design and development, implementing and improving multiple internal and user-facing services. Our main stack was Django and Django REST Framework, supported by Celery, Redis, and Celery Beat for asynchronous processing and scheduling. I also worked with ELK for logging, Prometheus and Grafana for monitoring, and Sentry for error tracking, contributing to the observability and stability of high-traffic production systems.`
-          }
-        ]
-      },
-      {
-        organization: 'Mozhan Negar Parsian',
-        mainTitle: 'ERP & Full-Stack Developer',
-        positions: [
-          {
-            title: 'ERP Developer',
-            period: {
-              start: 'Oct 2022',
-              end: 'Mar 2022'
-            },
-            summary: 'Worked on Odoo development and localization for Persian (Farsi), designing and implementing custom modules to address the needs of Iranian businesses. I developed modules for Iranian (Jalali) calendar support and a localized accounting system aligned with Iranian tax regulations.'
-          },
-          {
-            title: 'Full-Stack Developer',
-            period: {
-              start: 'Aug 2020',
-              end: 'Oct 2022'
-            },
-            summary: 'Worked on a Django-based internal production automation system for a scarf manufacturing company as part of a very little team, forcing us to fix every issue on our own. I was responsible for redesigning and reimplementing the entire production workflow, including printing, cutting, sewing, and outsourced processes.\nIn addition to operator usage, the system included detailed reporting modules for management to monitor production status and performance.'
-          }
-        ]
-      }
-    ],
-    categories: [
-      {
-        name: 'Backend Web Development',
-        skills: [
-          {
-            name: 'Django',
-            percentage: 100
-          },
-          {
-            name: 'DRF',
-            percentage: 100
-          },
-          {
-            name: 'FastAPI',
-            percentage: 60
-          }
-        ],
-        others: [
-          'Flask'
-        ]
-      },
-      {
-        name: 'Frontend Web Development',
-        skills: [
-          {
-            name: 'Vue',
-            percentage: 70
-          },
-          {
-            name: 'Nuxt.js',
-            percentage: 70
-          }
-        ],
-        others: [
-          'jquery',
-          'React / Next.js'
-        ]
-      },
-      {
-        name: 'Applications & Tools',
-        skills: [],
-        others: [
-          'Linux',
-          'Redis',
-          'Sentry',
-          'Grafana',
-          'ELK Stack'
-        ]
-      },
-      {
-        name: 'Databases',
-        skills: [
-          {
-            name: 'PostgreSQL',
-            percentage: 90
-          }
-        ],
-        others: [
-          'MySql',
-          'MongoDB',
-          'Elasticsearch'
-        ]
-      },
-      {
-        name: 'General Skills',
-        skills: [
-          {
-            name: 'Git',
-            percentage: 100
-          },
-          {
-            name: 'Docker / Docker Compose',
-            percentage: 80
-          },
-          {
-            name: 'Nginx',
-            percentage: 70
-          }
-        ],
-        others: [
-          'Software Architecture',
-          'Design Patterns',
-          'Writing Tests',
-          'Documentation',
-          'Agile/Scrum'
-        ]
-      },
-      {
-        name: 'Programming Languages',
-        skills: [
-          {
-            name: 'Python',
-            percentage: 90
-          },
-          {
-            name: 'Java Script',
-            percentage: 70
-          }
-        ],
-        others: [
-          'Go',
-          'Typescript',
-          'C / C++',
-          'Java',
-          'Rust'
-        ]
-      },
-      {
-        name: 'Languages',
-        skills: [
-          {
-            name: 'Persian',
-            percentage: 100
-          },
-          {
-            name: 'English',
-            percentage: 80
-          },
-          {
-            name: 'Arabic',
-            percentage: 50
-          }
-        ],
-        others: []
-      }
-    ],
-    educations: [
-      {
-        title: 'Bachelor of Computer Engineering',
-        period: {
-          start: '2016',
-          end: '2021'
+    {
+      organization: 'Mozhan Negar Parsian',
+      mainTitle: 'ERP & production automation',
+      // Overall company dates from the original resume (commit b3ccd2f).
+      // Individual role dates are unconfirmed, so they are intentionally omitted.
+      period: { start: 'Aug 2020', end: 'Mar 2022' },
+      positions: [
+        {
+          title: 'ERP Developer',
+          highlights: [
+            'Developed and localized Odoo modules for Iranian businesses, including Jalali calendar support and accounting workflows aligned with local tax requirements.'
+          ],
+          technologies: ['Python', 'Odoo']
         },
-        institutionName: 'University of Tehran, Tehran'
-      },
-      {
-        title: 'Diploma in Mathematics & Physics Discipline',
-        period: {
-          start: '2012',
-          end: '2016'
-        },
-        institutionName: 'Alavi Highschool, Tehran',
-        summary: 'Graduated from high school with a national university entrance exam rank of 221'
-      }
-    ]
-  }
-}
+        {
+          title: 'Full-Stack Developer',
+          highlights: [
+            'Redesigned and implemented a Django-based manufacturing workflow covering printing, cutting, sewing, and outsourced production.',
+            'Worked across the stack in a small team, building operator tools and management reports for tracking production status and performance.'
+          ],
+          technologies: ['Django', 'Production workflows', 'Reporting']
+        }
+      ]
+    }
+  ],
+  categories: [
+    {
+      name: 'Languages & backend',
+      skills: ['Python', 'Django', 'Django REST Framework', 'Celery', 'FastAPI'],
+      familiar: ['Go (Golang)', 'Flask']
+    },
+    {
+      name: 'Data & storage',
+      skills: ['PostgreSQL', 'SQL', 'Redis', 'Elasticsearch'],
+      familiar: ['MySQL', 'MongoDB']
+    },
+    {
+      name: 'Infrastructure & observability',
+      skills: ['Docker / Compose', 'Linux', 'Git', 'Nginx', 'Prometheus', 'Grafana', 'Sentry', 'ELK Stack']
+    },
+    {
+      name: 'Engineering',
+      skills: ['API design', 'Software architecture', 'Design patterns', 'Testing', 'Documentation', 'Agile / Scrum']
+    },
+    {
+      name: 'Frontend',
+      skills: ['JavaScript', 'Vue.js', 'Nuxt.js'],
+      familiar: ['TypeScript', 'React / Next.js']
+    }
+  ],
+  projects: [
+    {
+      name: 'Norbitrage',
+      type: 'Arbitrage system',
+      status: 'In development',
+      summary: 'A personal arbitrage system for collecting market data, identifying opportunities, and tracking orders.',
+      highlights: [
+        'Built the initial system in Python and Django, with Celery and Redis for background processing.',
+        'Gradually moving components to Go, with working parts of the system now implemented in both Python and Go.'
+      ],
+      technologies: ['Python', 'Go (Golang)', 'Django', 'Celery', 'Redis']
+    }
+  ],
+  languages: ['Persian', 'English', 'Arabic'],
+  educations: [
+    {
+      title: 'B.Sc. in Computer Engineering',
+      period: { start: '2016', end: '2021' },
+      institutionName: 'University of Tehran'
+    },
+    {
+      title: 'Diploma in Mathematics & Physics',
+      period: { start: '2012', end: '2016' },
+      institutionName: 'Alavi High School, Tehran',
+      summary: 'National university entrance exam rank: 221.'
+    }
+  ]
+})

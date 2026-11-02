@@ -1,9 +1,13 @@
+import { site } from './site.config'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  ssr: true,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
+    title: site.title,
     htmlAttrs: {
       lang: 'en'
     },
@@ -13,17 +17,41 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Mahdi Farhang is a Fullstack Developer, and has experience working with Django and Vue.js'
+        content: site.description
       },
+      { name: 'author', content: site.name },
+      { hid: 'robots', name: 'robots', content: 'index, follow, max-image-preview:large' },
+      { name: 'theme-color', content: '#14201f' },
+      { hid: 'og:type', property: 'og:type', content: 'profile' },
+      { hid: 'og:title', property: 'og:title', content: site.title },
+      { hid: 'og:description', property: 'og:description', content: site.description },
+      { hid: 'og:url', property: 'og:url', content: site.url },
+      { hid: 'og:site_name', property: 'og:site_name', content: 'Mahdi Farhang — Resume' },
+      { hid: 'og:locale', property: 'og:locale', content: 'en_US' },
+      { hid: 'og:image', property: 'og:image', content: site.image },
+      { property: 'og:image:secure_url', content: site.image },
+      { property: 'og:image:type', content: 'image/png' },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { property: 'og:image:alt', content: site.imageAlt },
+      { property: 'profile:first_name', content: 'Mahdi' },
+      { property: 'profile:last_name', content: 'Farhang' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: site.title },
+      { name: 'twitter:description', content: site.description },
+      { name: 'twitter:image', content: site.image },
+      { name: 'twitter:image:alt', content: site.imageAlt },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
+      { hid: 'canonical', rel: 'canonical', href: site.url },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/resume.css',
     '~/assets/print.css'
   ],
 
@@ -48,7 +76,7 @@ export default {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    defaultAssets: { icons: 'fa' },
+    defaultAssets: false,
     customVariables: ['~/assets/variables.scss'],
     theme: {
       dark: true,
@@ -81,5 +109,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extractCSS: true
   }
 }

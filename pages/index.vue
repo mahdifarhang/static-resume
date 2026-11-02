@@ -1,169 +1,112 @@
 <template>
-  <v-row justify="center" align="center" class="pa-0">
-    <v-col cols="12" lg="8" md="10" sm="12" xl="6">
-      <v-card :style="{background: $vuetify.theme.themes[theme].secondBackground}" elevation="4">
-        <v-card-title class="ma-2">
-          <span class="resume-title info--text">{{ capitalize(getName()) }}</span>
-        </v-card-title>
-        <v-card-subtitle class="ma-2">
-          <h1 class="accent--text">{{ position }}</h1>
-        </v-card-subtitle>
-        <v-card-text class="ma-2">
-          <v-row class="pa-2" justify="center">
-            <v-col
-              cols="12"
-              order="first"
-              md="4"
-              lg="4"
-              xl="4"
-              class="pa-3"
-              sm="6"
-            >
-              <div class="pa-0 mt-1 mb-2">
-                <span class="section-title accent--text">{{ capitalize("Contacts") }}</span>
-              </div>
-              <v-row class="mt-5 mb-2 ml-2">
-                <v-card max-width="150px" min-width="70px" style="border-radius: 50%;">
-                  <v-img src="profile.jpg" />
-                </v-card>
-              </v-row>
-              <v-row align="center" class="pa-1 ma-0">
-                <v-btn v-if="contacts.phone" :href="`tel:${contacts.phone}`" color="primary" icon>
-                  <v-icon>{{ icons.phone }}</v-icon>
-                </v-btn>
-                <span class="ml-2 info--text">{{ contacts.phone }}</span>
-              </v-row>
-              <v-row align="center" class="pa-1 ma-0">
-                <v-btn :href="`mailto:${contacts.email}`" color="primary" icon>
-                  <v-icon>{{ icons.email }}</v-icon>
-                </v-btn>
-                <span class="ml-2 info--text">{{ contacts.email }}</span>
-              </v-row>
-              <v-row class="pa-1 ma-0">
-                <v-btn
-                  v-for="(value, key) in contacts.links"
-                  :key="key"
-                  icon
-                  :href="value"
-                  color="primary"
-                >
-                  <v-icon>
-                    {{ icons[key] }}
-                  </v-icon>
-                </v-btn>
-              </v-row>
-            </v-col>
-            <v-col
-              cols="12"
-              sm="12"
-              lg="8"
-              md="8"
-              xl="8"
-              class="pa-3"
-              order="last"
-              order-lg="second"
-              order-md="second"
-              order-sm="last"
-              order-xl="second"
-            >
-              <div class="pa-0 mt-1 mb-2">
-                <span class="section-title accent--text">{{ capitalize("About") }}</span>
-              </div>
-              <span class="info--text about-text">{{ about }}</span>
-            </v-col>
-          </v-row>
-          <v-divider class="my-2 warning" />
-          <v-row class="pa-2">
-            <v-col cols="12" class="pa-3">
-              <div class="pa-0 mt-1 mb-2">
-                <span class="section-title accent--text">{{ capitalize("Experiences") }}</span>
-              </div>
-              <div v-for="(experience, index) in experiences" :key="experience.organization" class="m-0 p-0">
-                <v-row class="pa-1 ma-0">
-                  <experience-group :experience="experience" />
-                </v-row>
-                <v-divider v-if="index !== experiences.length - 1" class="my-2 warning" />
-              </div>
-              <v-divider class="my-2 warning" />
-              <v-row class="pa-0 ma-0">
-                <v-col cols="12" md="4" lg="4" xl="4" class="pa-3">
-                  <div class="pa-0 mt-1 mb-2">
-                    <span class="section-title accent--text">{{ capitalize("Educations") }}</span>
-                  </div>
-                  <v-row v-for="education in educations" :key="education.title" class="pa-1 ma-0">
-                    <periodic-action :action="education" />
-                  </v-row>
-                </v-col>
-                <v-col cols="12" md="8" lg="8" xl="8" class="pa-3">
-                  <div class="pa-0 mt-1 mb-2">
-                    <span class="section-title accent--text">{{ capitalize("Skills") }}</span>
-                    <category-component />
-                  </div>
-                </v-col>
-              </v-row>
-            </v-col>
-          </v-row>
-        </v-card-text>
-      </v-card>
-      <div class="print-only-link">
-        <a href="https://resume.mfarhang.ir">resume.mfarhang.ir</a>
+  <article id="resume" class="resume-sheet" aria-labelledby="resume-name">
+    <header class="resume-header">
+      <div class="intro">
+        <p class="eyebrow">Software engineering · Resume</p>
+        <h1 id="resume-name">{{ firstname }} <span>{{ lastname }}</span></h1>
+        <p class="position">{{ position }}</p>
+        <ul class="specialties" aria-label="Primary technical strengths">
+          <li v-for="specialty in specialties" :key="specialty">{{ specialty }}</li>
+        </ul>
       </div>
-    </v-col>
-  </v-row>
+      <img class="portrait" src="/profile.jpg" :alt="firstname + ' ' + lastname" width="132" height="132">
+      <p class="about-text">{{ about }}</p>
+      <nav class="contact-links" aria-label="Contact and profiles">
+        <a class="email-link" :href="'mailto:' + contacts.email">{{ contacts.email }}</a>
+        <a v-if="contacts.phone" :href="'tel:' + contacts.phone">{{ contacts.phone }}</a>
+        <a v-for="(url, label) in contacts.links" :key="label" :href="url" target="_blank" rel="noopener noreferrer">
+          {{ label }} <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+    </header>
+
+    <div class="resume-columns">
+      <section class="experience-section" aria-labelledby="experience-heading">
+        <div class="section-heading">
+          <span class="section-index" aria-hidden="true">01</span>
+          <h2 id="experience-heading">Experience</h2>
+        </div>
+        <experience-group v-for="experience in experiences" :key="experience.organization" :experience="experience" />
+      </section>
+
+      <aside class="resume-sidebar" aria-label="Skills, self projects, and education">
+        <section class="skills-section" aria-labelledby="skills-heading">
+          <div class="section-heading">
+            <span class="section-index" aria-hidden="true">02</span>
+            <h2 id="skills-heading">Technical skills</h2>
+          </div>
+          <category-component />
+        </section>
+
+        <section class="projects-section" aria-labelledby="projects-heading">
+          <div class="section-heading">
+            <span class="section-index" aria-hidden="true">03</span>
+            <h2 id="projects-heading">Self projects</h2>
+          </div>
+          <project-list />
+        </section>
+
+        <section class="education-section" aria-labelledby="education-heading">
+          <div class="section-heading">
+            <span class="section-index" aria-hidden="true">04</span>
+            <h2 id="education-heading">Education</h2>
+          </div>
+          <periodic-action v-for="education in educations" :key="education.title" :action="education" />
+        </section>
+
+        <section class="languages-section" aria-labelledby="languages-heading">
+          <h2 id="languages-heading">Languages</h2>
+          <p>{{ languages.join(' · ') }}</p>
+        </section>
+      </aside>
+    </div>
+
+    <footer class="resume-footer">
+      <span>{{ firstname }} {{ lastname }} <span aria-hidden="true">/</span> {{ position }}</span>
+      <a :href="siteUrl">resume.mfarhang.ir <span class="no-print" aria-hidden="true">↗</span></a>
+    </footer>
+    <resume-print />
+  </article>
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex'
+import { mapState } from 'vuex'
+import { site } from '~/site.config'
 
 export default {
   name: 'IndexPage',
-  data: () => {
+  data: () => ({ siteUrl: site.url }),
+  head () {
     return {
-      icons: {
-        phone: 'fa-solid fa-phone',
-        email: 'fa-solid fa-envelope',
-        telegram: 'fa-brands fa-telegram',
-        instagram: 'fa-brands fa-instagram',
-        gitlab: 'fa-brands fa-gitlab',
-        github: 'fa-brands fa-github',
-        twitter: 'fa-brands fa-twitter',
-        linkedIn: 'fa-brands fa-linkedin'
-      }
-    }
-  },
-  head: () => {
-    return {
-      title: 'Mahdi Farhang\'s Resume'
+      script: [{
+        hid: 'profile-schema',
+        type: 'application/ld+json',
+        json: {
+          '@context': 'https://schema.org',
+          '@type': 'ProfilePage',
+          '@id': site.url + '#profile',
+          url: site.url,
+          name: site.title,
+          description: site.description,
+          inLanguage: 'en',
+          mainEntity: {
+            '@type': 'Person',
+            '@id': site.url + '#person',
+            name: this.firstname + ' ' + this.lastname,
+            jobTitle: this.position,
+            description: this.about,
+            url: site.url,
+            image: site.url + 'profile.jpg',
+            sameAs: Object.values(this.contacts.links),
+            alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Tehran' },
+            knowsAbout: ['Backend development', 'Python', 'Django', 'PostgreSQL', 'Blockchain', 'Go programming fundamentals']
+          }
+        }
+      }]
     }
   },
   computed: {
-    ...mapState('resume', ['position', 'contacts', 'educations', 'experiences', 'about']),
-    ...mapGetters('resume', ['getName', 'capitalize']),
-    theme () {
-      return (this.$vuetify.theme.dark) ? 'dark' : 'light'
-    }
+    ...mapState('resume', ['firstname', 'lastname', 'position', 'contacts', 'about', 'specialties', 'experiences', 'educations', 'languages'])
   }
 }
 </script>
-
-<style>
-.resume-title {
-  font-weight: 800;
-  font-size: 2em;
-  letter-spacing: 0.2em;
-}
-
-.section-title {
-  font-weight: 500;
-  font-size: 1.5em;
-  letter-spacing: 0.05em;
-}
-
-.about-text {
-  white-space: pre-line;
-}
-
-.print-only-link {
-  display: none;
-}
-</style>
