@@ -72,9 +72,11 @@ yarn.lock
 
 # nuxt.js build output
 .nuxt
+.nuxt-personal
 
 # Nuxt generate
 dist
+dist-personal
 
 # Generated resume PDF exports
 /output/pdf/

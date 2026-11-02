@@ -71,7 +71,7 @@ import { site } from '~/site.config'
 
 export default {
   name: 'ResumePrint',
-  data: () => ({ siteUrl: site.url }),
+  data: () => ({ siteUrl: site.professionalUrl }),
   computed: {
     ...mapState('resume', ['firstname', 'lastname', 'position', 'about', 'specialties', 'contacts', 'experiences', 'educations', 'languages'])
   }

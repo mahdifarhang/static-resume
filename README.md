@@ -1,6 +1,7 @@
 # Mahdi Farhang — Resume
 
 A static Nuxt 2 / Vue 2 resume for https://resume.mfarhang.ir/.
+The personal version with shared dates lives at https://moments.mfarhang.ir/.
 
 ## Development
 
@@ -11,15 +12,24 @@ yarn install
 yarn dev
 ```
 
+Use `yarn dev:personal` to preview the personal version on port 3001.
+
 ## Generate and deploy
 
 ```sh
 yarn generate
+yarn generate:personal
 ```
 
 Deploy the **entire contents of `dist/`** to the existing resume web root.
 The repository's Nginx configuration serves it from
 `/var/www/mfarhang.ir/html`. No new hosting provider is required.
+Deploy the separate `dist-personal/` output to
+`/var/www/moments.mfarhang.ir/html` for the personal host. The two builds use
+separate caches and output folders. Use [deploy/nginx.conf](deploy/nginx.conf)
+in your existing Nginx config file; no additional Nginx config file is needed.
+Replace each web root's old generated files with the matching fresh build,
+rather than leaving stale assets from previous deployments.
 
 Static generation is required: it puts the resume, social tags, and JSON-LD
 in the initial HTML so search engines and messaging crawlers can read them
@@ -49,6 +59,28 @@ The Mozhan Negar Parsian company dates use the original resume's
 August 2020–March 2022 range (commit `b3ccd2f`); individual role dates
 are omitted because the later dates were inconsistent.
 
+## Personal dates
+
+The Persian memories section appears above experience in the **personal build**.
+Its content lives in `content/personal-dates.js`, whose `dates` array can be
+extended. The data module is excluded from professional builds and from both
+versions' print/PDF layout.
+
+To add another date, append an object to `dates` in `content/personal-dates.js`:
+
+```js
+{
+  id: 'a-unique-date-id',
+  place: 'نام کافه',
+  date: 'تاریخ دیدار',
+  time: 'ساعت دیدار',
+  quote: 'متن دلخواه'
+}
+```
+
+`time` and `quote` are optional. Dates appear in the order of the list, and the
+layout automatically accommodates additional entries.
+
 ## Link previews and SEO
 
 The page includes a canonical URL, title and description, Open Graph tags,
@@ -68,8 +100,10 @@ still see an old one after deployment, test a fresh share URL such as
 `https://resume.mfarhang.ir/?preview=2`. The canonical URL stays unchanged.
 Preview display is ultimately controlled by the client and its cache.
 
-If the public domain changes, update `site.config.js`, `robots.txt`,
-`sitemap.xml`, the footer label in `pages/index.vue`, and the image generator.
+Domains and canonical/preview URLs are selected in `site.config.js`. The
+professional sitemap and robots file remain in `static/`; generation replaces
+the personal robots file and removes its sitemap. The personal host uses
+`noindex, nofollow`, which discourages indexing but does not restrict access.
 
 To regenerate the code-drawn social image (optional, requires Python and Pillow):
 

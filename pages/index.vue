@@ -20,6 +20,8 @@
       </nav>
     </header>
 
+    <memories-section />
+
     <div class="resume-columns">
       <section class="experience-section" aria-labelledby="experience-heading">
         <div class="section-heading">
@@ -63,7 +65,7 @@
 
     <footer class="resume-footer">
       <span>{{ firstname }} {{ lastname }} <span aria-hidden="true">/</span> {{ position }}</span>
-      <a :href="siteUrl">resume.mfarhang.ir <span class="no-print" aria-hidden="true">↗</span></a>
+      <a :href="siteUrl">{{ siteHost }} <span class="no-print" aria-hidden="true">↗</span></a>
     </footer>
     <resume-print />
   </article>
@@ -75,7 +77,7 @@ import { site } from '~/site.config'
 
 export default {
   name: 'IndexPage',
-  data: () => ({ siteUrl: site.url }),
+  data: () => ({ siteUrl: site.url, siteHost: site.host }),
   head () {
     return {
       script: [{

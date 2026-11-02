@@ -1,9 +1,27 @@
-import { site } from './site.config'
+import { writeFileSync, unlinkSync } from 'fs'
+import { join } from 'path'
+import { personalSite, site } from './site.config'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   ssr: true,
+  buildDir: personalSite ? '.nuxt-personal' : '.nuxt',
+  env: {
+    RESUME_PERSONAL: personalSite ? 'true' : 'false'
+  },
+  generate: {
+    dir: personalSite ? 'dist-personal' : 'dist'
+  },
+  hooks: {
+    'generate:done' (generator) {
+      if (personalSite) {
+        // Allow crawling so crawlers can read the noindex meta/header.
+        writeFileSync(join(generator.distPath, 'robots.txt'), 'User-agent: *\nAllow: /\n')
+        unlinkSync(join(generator.distPath, 'sitemap.xml'))
+      }
+    }
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -20,7 +38,7 @@ export default {
         content: site.description
       },
       { name: 'author', content: site.name },
-      { hid: 'robots', name: 'robots', content: 'index, follow, max-image-preview:large' },
+      { hid: 'robots', name: 'robots', content: site.robots },
       { name: 'theme-color', content: '#14201f' },
       { hid: 'og:type', property: 'og:type', content: 'profile' },
       { hid: 'og:title', property: 'og:title', content: site.title },

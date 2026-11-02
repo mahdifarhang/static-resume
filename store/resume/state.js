@@ -14,6 +14,8 @@ export default () => ({
   },
   about: 'I’m a software engineer who enjoys understanding a problem end to end and turning it into useful, maintainable software. I’ve worked on backend services, full-stack applications, and business automation, from small-team projects to large production systems. Python, Django, and PostgreSQL are my main tools. I like digging into difficult bugs, improving how systems work, and learning new tools when a problem calls for them.',
   specialties: ['Python & Django', 'API design & integration', 'PostgreSQL & query optimization'],
+  // This branch is removed from professional builds, including its data module.
+  lovedOne: process.env.RESUME_PERSONAL === 'true' ? require('~/content/personal-dates').default : null,
   experiences: [
     {
       organization: 'Nobitex',
